@@ -29,7 +29,6 @@ The developed gluten-free product classifier will have several benefits:
 1. Empower consumers: Individuals with celiac disease can confidently identify safe gluten-free products to include in their diet.
 2. Time-saving: The classifier will provide quick and automated results, saving consumers time spent manually analyzing ingredient lists.
 3. Promote gluten-free choices: The tool can encourage individuals to adopt gluten-free diets by simplifying product selection.
-Enhanced transparency: Manufacturers can also use the tool to ensure accurate labeling and compliance with gluten-free standards.
 
 # Dataset Description:
 
