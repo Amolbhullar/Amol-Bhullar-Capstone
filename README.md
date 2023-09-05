@@ -2,11 +2,13 @@
 
 # Project Overview
 
-The objective of this Capstone project is to develop a machine learning model that can predict whether a product is gluten-free or not based on its ingredient list. The project will utilize two datasets: one containing a list of known gluten-free and gluten-containing ingredients and another containing ingredient lists of various products.
+The objective of this Capstone project is to develop a machine learning classifier that can predict whether a product is gluten-free or not based on its product description. The project will leverage a dataset containing product descriptions and their corresponding gluten-free status labels.
+
 
 # Problem Statement
 
-Gluten-free diets are essential for individuals with celiac disease or gluten sensitivity. However, identifying gluten-free products can be challenging, as gluten can hide under various ingredient names. The goal of this project is to create a tool that can automatically analyze ingredient lists and classify products as gluten-free or non-gluten-free, providing a convenient solution for consumers seeking gluten-free options.
+Gluten-free diets are crucial for individuals with celiac disease or gluten sensitivity. However, identifying gluten-free products can be challenging, especially when the product description does not explicitly state its gluten content. The goal of this project is to create a machine learning model that can automatically analyze product descriptions and classify products as gluten-free or non-gluten-free, providing a convenient solution for consumers seeking gluten-free options.
+
 
 # Proposed Data Science Solution:
 
@@ -14,9 +16,10 @@ Gluten-free diets are essential for individuals with celiac disease or gluten se
 
 This dataset will contain a comprehensive list of known gluten-free ingredients. It will serve as a reference for identifying gluten-free components in product ingredient lists.
 
-2. Dataset 2: Product Ingredient Lists
+2. Dataset 2: Product Descriptions and Labels
 
-This dataset will include ingredient lists from various products, some of which are gluten-free and others that may contain gluten. It will be used to train and evaluate the machine learning model.
+
+This dataset will include product descriptions along with their gluten-free status labels. The labels will indicate whether the product is gluten-free (0: gluten-free, 1: non-gluten-free).
 
 3. Data Preprocessing:
 
@@ -24,7 +27,7 @@ Clean and preprocess the product ingredient lists by removing punctuation, conve
 
 4. Machine Learning:
 
-Train a machine learning model using the preprocessed data from Dataset 2. By vectorizing the ingredient lists using CountVectorizer, and then training a Naive Bayes classifier to make predictions on the test set.
+Train a machine learning model using the preprocessed data from Dataset 2. By vectorizing the ingredient lists using CountVectorizer, and then training a Naive Bayes classifier, Logistic Regression, Decision Tree and distilbert-base-uncased Model to make predictions on the test set.
 
 5. Model Evaluation:
 
@@ -33,7 +36,7 @@ Ensure the model effectively distinguishes between gluten-free and non-gluten-fr
 
 6. Deployment:
 
-Deploy the trained model as a user-friendly tool where users can input product ingredient lists to determine their gluten-free status.
+Deploy the trained model as a user-friendly tool where users can input product descriptions to determine their gluten-free status.
 
 # Impact of the Solution:
 
@@ -60,10 +63,26 @@ Ingredient: The name of the ingredient.
 Gluten?: A binary target variable indicating whether the ingredient is gluten-free (0: gluten-free, 1: non-gluten-free).
 
 # Data Dictionary (Dataset 2):
-ProductName: The name of the product.
-IngredientList: A text field containing the list of ingredients used in the product.
-fdc_id: ID of the food in the food table.
-brand_owner: Brand owner for the food.
-branded_food_category: The category of the branded food, assigned by GDSN or Label Insight.
-data_source: The source of the data for this food, either GDSN (GS1) or LI (Label Insight).
-Is_gluten_free?: A binary target variable indicating whether the product is gluten-free (0: gluten-free, 1: non-gluten-free).
+1. fdc_id: ID of the food in the food table
+2. brand_owner: Brand owner for the food
+3. gtin_upc: GTIN or UPC code identifying the food
+4. ingredients: The list of ingredients (as it appears on the product label)
+5. serving_size: The amount of the serving size when expressed as gram or ml
+6. serving_size_unit: The amount of the serving size when expressed as gram or ml
+7. household_serving_fulltext: The amount and unit of serving size when expressed in household units
+8. branded_food_category: The category of the branded food, assigned by GDSN or Label Insight
+9. data_source: The source of the data for this food. GDSN (for GS1) or LI (for Label Insight).
+10. modified_date: This date reflects when the product data was last modified by the data provider, i.e., the manufacturer
+11. available_date: This is the date when the product record was available for inclusion in the database.
+12. discontinued_date: This is the date when the product was discontinued.
+13. market_country: The primary country where the product is marketed.
+
+# Data Dictionary (Dataset 3):
+1. fdc_id: ID of the food in the food table
+2. foodClass: For internal use only
+3. data_type: Type of food data (see Files tab for possible values).
+4. description: Description of the food
+5. food_category_id: Id of the food category the food belongs to
+6. publication_date: Date when the food was published to FoodData Central
+7. scientific_name: scientific_name
+8. food_key: A string of characters used to identify both the current and all historical records for a specific food.
